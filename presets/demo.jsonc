@@ -1,0 +1,103 @@
+//  |  __|     |__   |_____| |_  | | | |__   |__|__|_____|_____|  DEMO
+//  |  __|   --|     |__   |  _  | | | |__   |   __|     |__   |
+//  |_____|_____|__|__|_____|_____|_____|_____|_____|__|__|_____|  PUBLIC-SAFE
+//
+//  This preset is safe for screenshots, blog posts, and social media.
+//  Omitted on purpose: localip, publicip, route, QUIC/SOCKS state,
+//  distrobox names, thermals-specific, brightness, MAC-derived hw info.
+
+{
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+    "logo": null,
+    "display": {
+        "separator": "  ",
+        "color": {
+            "keys": "light_magenta",
+            "title": "light_cyan"
+        },
+        "key": {
+            "width": 16,
+            "type": "string"
+        },
+        "bar": {
+            "width": 20,
+            "char": {
+                "elapsed": "█",
+                "total": "░"
+            }
+        }
+    },
+    "modules": [
+        "title",
+        "separator",
+        {
+            "type": "datetime",
+            "key": " Time"
+        },
+        {
+            "type": "os",
+            "key": " OS"
+        },
+        {
+            "type": "host",
+            "key": " Host"
+        },
+        {
+            "type": "kernel",
+            "key": " Kernel"
+        },
+        {
+            "type": "uptime",
+            "key": " Uptime"
+        },
+        {
+            "type": "command",
+            "key": " Install Age",
+            "keyColor": "light_yellow",
+            "text": "sh -lc 'birth=$(stat -c %W / 2>/dev/null || echo 0); now=$(date +%s); [ \"$birth\" -gt 0 ] 2>/dev/null && echo \"$(( (now - birth) / 86400 )) days ($(date -d @$birth +%Y-%m-%d 2>/dev/null))\" || echo unknown'"
+        },
+        {
+            "type": "packages",
+            "key": " Packages"
+        },
+        {
+            "type": "shell",
+            "key": " Shell"
+        },
+        {
+            "type": "terminal",
+            "key": " Terminal"
+        },
+        {
+            "type": "wm",
+            "key": " WM"
+        },
+        {
+            "type": "theme",
+            "key": " Theme"
+        },
+        {
+            "type": "cpu",
+            "key": " CPU",
+            "format": "{1} @ {7}"
+        },
+        {
+            "type": "memory",
+            "key": " Memory"
+        },
+        {
+            "type": "swap",
+            "key": " Swap"
+        },
+        {
+            "type": "disk",
+            "key": " Disk"
+        },
+        "break",
+        {
+            "type": "colors",
+            "symbol": "circle",
+            "paddingLeft": 2
+        }
+    ]
+}

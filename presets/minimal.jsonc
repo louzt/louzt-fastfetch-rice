@@ -1,0 +1,81 @@
+//  |  __|     |  _  |   __|   _  |_   _|  |__|  |  |   __|_   _|     |  |  |
+//  |  __|   --|     |__   | | | | | | |   __|   __| | | |   --|     |
+//  |_____|_____|__|__|_____| |_| |_____|_____| |_| |_____|__|__|  MINIMAL
+//
+//  No logo, no system-specific modules, no network info.
+//  Use this preset for clean screenshots, pastebins, public-facing captures.
+
+{
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+    "logo": null,
+    "display": {
+        "separator": "  ",
+        "color": {
+            "keys": "light_magenta",
+            "title": "light_cyan"
+        },
+        "key": {
+            "width": 16,
+            "type": "string"
+        }
+    },
+    "modules": [
+        "title",
+        "separator",
+        {
+            "type": "datetime",
+            "key": " Time"
+        },
+        {
+            "type": "os",
+            "key": " OS"
+        },
+        {
+            "type": "host",
+            "key": " Host"
+        },
+        {
+            "type": "kernel",
+            "key": " Kernel"
+        },
+        {
+            "type": "uptime",
+            "key": " Uptime"
+        },
+        {
+            "type": "packages",
+            "key": " Packages"
+        },
+        {
+            "type": "shell",
+            "key": " Shell"
+        },
+        {
+            "type": "terminal",
+            "key": " Terminal"
+        },
+        {
+            "type": "wm",
+            "key": " WM"
+        },
+        {
+            "type": "cpu",
+            "key": " CPU",
+            "format": "{1} @ {7}"
+        },
+        {
+            "type": "memory",
+            "key": " Memory"
+        },
+        {
+            "type": "disk",
+            "key": " Disk"
+        },
+        "break",
+        {
+            "type": "colors",
+            "symbol": "circle",
+            "paddingLeft": 2
+        }
+    ]
+}

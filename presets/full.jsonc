@@ -1,0 +1,198 @@
+{
+  "$schema": "https://raw.githubusercontent.com/fastfetch-cli/fastfetch/dev/doc/json_schema.json",
+  "logo": {
+    "type": "auto",
+    "source": "~/.config/fastfetch/logo-current",
+    "padding": {
+      "right": 3
+    }
+  },
+  "display": {
+    "separator": "  ",
+    "color": {
+      "keys": "light_magenta",
+      "title": "light_cyan"
+    },
+    "key": {
+      "width": 16,
+      "type": "string"
+    },
+    "bar": {
+      "width": 20,
+      "char": {
+        "elapsed": "█",
+        "total": "░"
+      }
+    },
+    "percent": {
+      "type": 3
+    }
+  },
+  "modules": [
+    "title",
+    "separator",
+    {
+      "type": "datetime",
+      "key": "󰃭 Time"
+    },
+    {
+      "type": "command",
+      "key": "󰀵 Logo"
+      ,"text": "sh -lc 'basename \"$(ff-logo current 2>/dev/null)\"'",
+      "format": "{}"
+    },
+    {
+      "type": "os",
+      "key": "󰣇 OS"
+    },
+    {
+      "type": "host",
+      "key": "󰌢 Host"
+    },
+    {
+      "type": "kernel",
+      "key": "󰒋 Kernel"
+    },
+    {
+      "type": "uptime",
+      "key": "󰅐 Uptime"
+    },
+    {
+      "type": "packages",
+      "key": "󰏖 Packages"
+    },
+    {
+      "type": "shell",
+      "key": "󰆍 Shell"
+    },
+    {
+      "type": "terminal",
+      "key": " Terminal"
+    },
+    {
+      "type": "command",
+      "key": "󰍹 Session",
+      "text": "sh -lc 'printf \"%s · %s%s\" \"${XDG_CURRENT_DESKTOP:-unknown}\" \"${XDG_SESSION_TYPE:-unknown}\" \"$( [ -d \"$HOME/.config/DankMaterialShell\" ] && printf \" · DMS\" )\"'",
+      "format": "{}"
+    },
+    {
+      "type": "command",
+      "key": "󰛖 Term Font"
+      ,"text": "sh -lc 'awk -F \" = \" \"/^(font-family|font-size) = / { print \\$2 }\" \"$HOME/.config/ghostty/config\" 2>/dev/null | paste -sd\" / \" - || echo unavailable'",
+      "format": "{}"
+    },
+    {
+      "type": "terminalsize",
+      "key": "󰍹 Term Size"
+    },
+    {
+      "type": "display",
+      "key": "󰍹 Display"
+    },
+    {
+      "type": "wm",
+      "key": " WM"
+    },
+    {
+      "type": "theme",
+      "key": "󰉼 Theme"
+    },
+    {
+      "type": "command",
+      "key": "󰋩 Distrobox",
+      "text": "sh -lc 'payload=$(loust-distrobox-status 2>/dev/null || true); if [ -n \"$payload\" ]; then printf \"%s\" \"$payload\" | python3 -c \"import json,sys; data=json.load(sys.stdin); boxes=data.get(\\\"boxes\\\", []); names=[\\\"{}={}\\\".format(box.get(\\\"name\\\", \\\"?\\\"), box.get(\\\"status\\\", \\\"?\\\")) for box in boxes[:3]]; base=\\\"{} boxes · up={}\\\".format(len(boxes), data.get(\\\"runningCount\\\", 0)); print(base + ((\\\" · \\\" + \\\"; \\\".join(names)) if names else \\\"\\\"))\"; else echo unavailable; fi'",
+      "format": "{}"
+    },
+    {
+      "type": "processes",
+      "key": "󰅩 Procs"
+    },
+    "break",
+    {
+      "type": "command",
+      "key": "󰖟 QUIC",
+      "text": "sh -lc 'payload=$(curl -fsS --max-time 2 http://127.0.0.1:9381/metrics 2>/dev/null || true); if [ -n \"$payload\" ]; then printf \"%s\\n\" \"$payload\" | sed -n \"s/.*\\\"connected\\\":\\(true\\|false\\).*\\\"active_streams\\\":\\([0-9][0-9]*\\).*/\\1 streams=\\2/p\"; else echo unavailable; fi'",
+      "format": "{}"
+    },
+    {
+      "type": "command",
+      "key": "󰒍 SOCKS",
+      "text": "sh -lc 'printf \"service=%s listener=%s\" \"$(systemctl --user is-active loust-vps-socks.service 2>/dev/null || echo inactive)\" \"$(ss -ltn | grep -q 127.0.0.1:9998 && echo up || echo down)\"'",
+      "format": "{}"
+    },
+    {
+      "type": "command",
+      "key": "󰞉 SOCKS Out",
+      "text": "sh -lc 'curl -4 -fsS --socks5-hostname 127.0.0.1:9998 --max-time 8 https://ifconfig.me || echo unavailable'",
+      "format": "{}"
+    },
+    {
+      "type": "command",
+      "key": "󰌘 Proxy Env",
+      "text": "sh -lc 'printf \"%s\" \"${ALL_PROXY:-off}\"'",
+      "format": "{}"
+    },
+    {
+      "type": "localip",
+      "key": "󰩟 Local IP"
+    },
+    {
+      "type": "publicip",
+      "key": "󰇧 Public IP"
+    },
+    {
+      "type": "command",
+      "key": "󰌗 Route",
+      "text": "sh -lc 'ip route show default 2>/dev/null | python3 -c \"import sys; line = next((entry.strip() for entry in sys.stdin if entry.strip()), \\\"\\\"); parts = line.split(); print((parts[4] + \\\" via \\\" + parts[2]) if len(parts) >= 5 else \\\"unavailable\\\")\"'",
+      "format": "{}"
+    },
+    "break",
+    {
+      "type": "cpu",
+      "key": "󰘚 CPU"
+    },
+    {
+      "type": "gpu",
+      "key": "󰢮 GPU"
+    },
+    {
+      "type": "command",
+      "key": "󰔄 Thermals",
+      "text": "sh -lc 'thermals --brief'",
+      "format": "{}"
+    },
+    {
+      "type": "command",
+      "key": "󰓅 Thermal Ctrl",
+      "text": "sh -lc 'thermals --profile'",
+      "format": "{}"
+    },
+    {
+      "type": "battery",
+      "key": "󰁹 Battery"
+    },
+    {
+      "type": "command",
+      "key": "󰃟 Brightness",
+      "text": "sh -lc 'for dir in /sys/class/backlight/*; do [ -d \"$dir\" ] || continue; cur=$(cat \"$dir/brightness\" 2>/dev/null || true); max=$(cat \"$dir/max_brightness\" 2>/dev/null || true); if [ -n \"$cur\" ] && [ -n \"$max\" ] && [ \"$max\" -gt 0 ] 2>/dev/null; then printf \"%s%% [%s]\" \"$(( cur * 100 / max ))\" \"$(basename \"$dir\")\"; exit 0; fi; done; echo unavailable'",
+      "format": "{}"
+    },
+    {
+      "type": "memory",
+      "key": "󰍛 Memory"
+    },
+    {
+      "type": "swap",
+      "key": "󰓡 Swap"
+    },
+    {
+      "type": "loadavg",
+      "key": "󰾆 Load"
+    },
+    {
+      "type": "disk",
+      "key": "󰋊 Disk"
+    },
+    "colors"
+  ]
+}

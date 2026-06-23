@@ -1,0 +1,21 @@
+lou@loust
+---------
+ Time  2026-06-23 17:57:03
+ OS  Debian GNU/Linux forky/sid (forky) x86_64
+ Host  ASUS TUF Gaming A15 FA506IC_FA506IC (1.0)
+ Kernel  Linux 6.19.14+deb14-amd64
+ Uptime  5 days, 22 hours, 6 mins
+ Install Age  65 days (2026-04-19)
+ Packages  7615 (dpkg), 14 (flatpak-system), 38 (flatpak-user)
+ Shell  zsh 5.9
+ Terminal  claude
+ WM  niri 26.04 (Wayland)
+ Theme  Breeze [GTK2/3]
+ CPU  AMD Ryzen 7 4800H @ 4.30 GHz
+ Memory  29.97 GiB / 30.77 GiB (97%)
+ Swap  23.03 GiB / 43.92 GiB (52%)
+ Disk  470.38 GiB / 613.70 GiB (77%) - ext4
+ Disk  239.14 GiB / 457.36 GiB (52%) - ext4
+ Disk  690.52 MiB / 793.00 MiB (87%) - ntfs3
+
+  ● ● ● ● ● ● ● ●

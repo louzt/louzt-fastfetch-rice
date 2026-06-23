@@ -1,0 +1,21 @@
+# IDE / OS noise
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Build artifacts
+__pycache__/
+*.pyc
+
+# Personal overrides
+*.local
+config.local.jsonc
+
+# Large generated files (commit only text screenshots)
+*.bin
+*.raw
+
+# Backups
+*.bak
+*.bak-*

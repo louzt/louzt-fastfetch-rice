@@ -1,0 +1,108 @@
+//  |   __|  _  |   __|_   _|   __|   __|_   _|     |  |  |
+//  |   __|     |__   | | | |   __|   __| | | |   --|     |
+//  |__|  |__|__|_____| |_| |__|  |_____| |_| |_____|__|__|  GROUPS
+//
+//  Grouped by category with distinct colors per group.
+//  No network/sensitive info. Good for screenshots and showcases.
+
+{
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+    "logo": null,
+    "display": {
+        "separator": "  ",
+        "key": {
+            "width": 18,
+            "type": "string"
+        }
+    },
+    "modules": [
+        "title",
+        "separator",
+        {
+            "type": "datetime",
+            "key": " Time",
+            "keyColor": "light_cyan"
+        },
+        "break",
+        {
+            "type": "os",
+            "key": " OS",
+            "keyColor": "31"
+        },
+        {
+            "type": "host",
+            "key": " Host",
+            "keyColor": "31"
+        },
+        {
+            "type": "kernel",
+            "key": " Kernel",
+            "keyColor": "31"
+        },
+        {
+            "type": "shell",
+            "key": " Shell",
+            "keyColor": "31"
+        },
+        {
+            "type": "terminal",
+            "key": " Terminal",
+            "keyColor": "31"
+        },
+        {
+            "type": "wm",
+            "key": " WM",
+            "keyColor": "31"
+        },
+        "break",
+        {
+            "type": "cpu",
+            "key": " CPU",
+            "keyColor": "33",
+            "format": "{1} @ {7}"
+        },
+        {
+            "type": "gpu",
+            "key": " GPU",
+            "keyColor": "33",
+            "format": "{1}"
+        },
+        {
+            "type": "memory",
+            "key": " Memory",
+            "keyColor": "33"
+        },
+        {
+            "type": "swap",
+            "key": " Swap",
+            "keyColor": "33"
+        },
+        {
+            "type": "disk",
+            "key": " Disk",
+            "keyColor": "33"
+        },
+        "break",
+        {
+            "type": "uptime",
+            "key": " Uptime",
+            "keyColor": "35"
+        },
+        {
+            "type": "loadavg",
+            "key": " Load",
+            "keyColor": "35"
+        },
+        {
+            "type": "processes",
+            "key": " Procs",
+            "keyColor": "35"
+        },
+        "break",
+        {
+            "type": "colors",
+            "symbol": "circle",
+            "paddingLeft": 2
+        }
+    ]
+}
