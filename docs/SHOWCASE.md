@@ -18,7 +18,7 @@ Add entries as new discussions come in. Format:
 - one-line description
 -->
 
-_Be the first to share your rice._ Open a discussion in [Show and tell](https://github.com/louzt/louzt-fastfetch-rice/discussions/categories/show-and-tell).
+_Be the first to share your setup._ Open a discussion in [Show and tell](https://github.com/louzt/louzt-fastfetch-rice/discussions/categories/show-and-tell) — terminal, distro, WM, font, and a screenshot.
 
 ## Notable community presets
 
